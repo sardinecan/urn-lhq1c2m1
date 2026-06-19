@@ -1,0 +1,803 @@
+<div type="level2" xml:id="calendrier-des-cours">
+  <head>Calendrier des cours</head>
+  <p>6 séances :</p>
+  <list type="unordered">
+    <item>
+      <p>6 octobre (8h30-10h30)</p>
+      <list type="unordered">
+        <item>
+          <p><hi rendition="simple:bold">XPath</hi> (et 1re XSLT ?)</p>
+        </item>
+      </list>
+    </item>
+    <item>
+      <p>13 octobre (8h30-10h30)</p>
+      <list type="unordered">
+        <item>
+          <p><hi rendition="simple:bold">XSLT</hi>, les
+          <hi rendition="simple:italic">templates</hi>, déclarer
+          éléments et attributs, <hi rendition="simple:italic">copy</hi>
+          et <hi rendition="simple:italic">copy-of</hi></p>
+        </item>
+      </list>
+    </item>
+    <item>
+      <p>10 novembre (8h30-10h30 <hi rendition="simple:bold">et</hi>
+      13h30-16h30)</p>
+      <list type="unordered">
+        <item>
+          <p><hi rendition="simple:bold">XSLT</hi> : les modes,
+          variables et opérations sur les chaînes</p>
+        </item>
+        <item>
+          <p><hi rendition="simple:bold">XSLT</hi> :
+          <hi rendition="simple:italic">eval. XPath 1h
+          l’après-midi</hi> ; les conditions et boucles</p>
+        </item>
+      </list>
+    </item>
+    <item>
+      <p>17 novembre (13h30-16h30)</p>
+      <list type="unordered">
+        <item>
+          <p><hi rendition="simple:bold">XSLT</hi> : les
+          <hi rendition="simple:italic">templates
+          <quote>name</quote></hi> et fonctions</p>
+        </item>
+      </list>
+    </item>
+    <item>
+      <p>24 novembre (13h30-16h30)</p>
+      <list type="unordered">
+        <item>
+          <p><hi rendition="simple:italic">éval. terminale 3h</hi></p>
+        </item>
+      </list>
+    </item>
+  </list>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+<div type="level2" xml:id="objectifs-du-cours">
+  <head>Objectifs du cours</head>
+  <list type="unordered">
+    <item>
+      <p>Introduction aux langages XPath et XSLT…</p>
+    </item>
+    <item>
+      <p>…essentiellement pour le traitement de documents XML-TEI</p>
+    </item>
+    <item>
+      <p>maîtrise des concepts fondamentaux</p>
+    </item>
+    <item>
+      <p>panorama des méthodes de publication de documents XML ?</p>
+    </item>
+  </list>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+<div type="level2" xml:id="éléments-de-définition-xpath-xslt">
+  <head>Éléments de définition : XPath &amp; XSLT</head>
+  <list type="unordered">
+    <item>
+      <p><hi rendition="simple:bold">XPath</hi> : syntaxe non XML pour
+      parcourir un <hi rendition="simple:italic">arbre</hi> XML</p>
+    </item>
+    <item>
+      <p><hi rendition="simple:bold">XSLT</hi> : application XML pour
+      transformer un <hi rendition="simple:italic">arbre</hi> XML</p>
+    </item>
+  </list>
+  <p>XPath et XSLT sont des standards développés et maintenus par le
+  <hi rendition="simple:italic">World Wide Web Consortium</hi> (W3C)</p>
+  <p>XPath est un langage <hi rendition="simple:italic">intégré</hi>
+  dans de nombreuses applications XML ou non (DOM, XSLT, XML Schema,
+  XForms, XQuery, etc.)</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+<div type="level2" xml:id="éléments-de-définition-arborescence">
+  <head>Éléments de définition : arborescence</head>
+  <p>Qu’est-ce qu’un <hi rendition="simple:italic">arbre</hi> ?</p>
+  <p>Un <hi rendition="simple:italic">arbre</hi> est une structure
+  hiérarchique composée de <hi rendition="simple:bold">nœuds</hi>.</p>
+  <p>Qu’est-ce qu’un <hi rendition="simple:italic">nœud</hi> ?</p>
+  <p>Un <hi rendition="simple:italic">nœud</hi> correspond à une
+  composante d’un arbre pouvant contenir une sous-arborescence.</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+<div type="level2" xml:id="éléments-de-définition-arborescence---exercice">
+  <head>Éléments de définition : arborescence -
+  <hi rendition="simple:bold">Exercice</hi></head>
+  <p>Représenter cet arbre XML :</p>
+  <ab type='codeblock xml'>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;hello.xsl&quot;?&gt;
+&lt;greeting lang=&quot;en&quot;&gt;Hello World!&lt;/greeting&gt;
+</ab>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <p><figure>
+    <head>xmltree</head>
+    <graphic url="./assets/images/xmltree01.jpg" />
+  </figure></p>
+  <p>xmltree</p>
+  <milestone unit="undefined" type="separator" rendition="line" />
+</div>
+<div type="level1" xml:id="xpath">
+  <head>XPath</head>
+  <milestone unit="undefined" type="separator" rendition="line" />
+  <div type="level2" xml:id="bibliographie">
+    <head>Bibliographie</head>
+    <list type="unordered">
+      <item>
+        <p>Birnbaum D. J. « What can XPath do for me? ». Disponible
+        sur :
+        &lt;<ref target="http://dh.obdurodon.org/introduction-xpath.xhtml">http://dh.obdurodon.org/introduction-xpath.xhtml</ref>&gt;</p>
+      </item>
+      <item>
+        <p>Harold E. R., Means W. S. XML en concentré : manuel de
+        référence. Paris, France : O’Reilly, 2005. ISBN :
+        2-84177-353-1.</p>
+      </item>
+      <item>
+        <p>« XML Path Language (XPath) 3.1 ». Disponible sur :
+        &lt;<ref target="https://www.w3.org/TR/xpath-31/">https://www.w3.org/TR/xpath-31/</ref>&gt;</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+    <p><hi rendition="simple:italic">XPath</hi> peut être utilisé pour
+    effectuer des calculs numériques, manipuler des chaînes de
+    caractères, ou encore évaluer des conditions (booléens), mais
+    surtout :</p>
+    <quote>
+      <p>« XPath est un langage pour sélectionner des nœuds et ensembles
+      de nœuds [dans une] arborescence. »<note>
+        <p>Harold, Elliotte Rusty et Means, W. Scott. « XML en concentré
+        : manuel de référence »</p>
+      </note></p>
+    </quote>
+    <milestone unit="undefined" type="separator" rendition="line" />
+    <p>Une expression <hi rendition="simple:italic">XPath</hi> est un
+    <hi rendition="simple:bold">chemin</hi> composé d’une série
+    d’étapes, où chaque étape correspond à un type de nœud à
+    traverser.</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-exercice">
+    <head>Chemins de localisation : exercice</head>
+    <p>Par quelles étapes doit-on passer pour arriver à l’élément
+    <seg type="code">&lt;title/&gt;</seg> ?</p>
+    <ab type='codeblock xml'>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;fileDesc&gt;
+    &lt;titleStmt&gt;
+        &lt;title&gt;IDC 2506 : Fuss [à Condorcet], 7 août 1778&lt;/title&gt;
+    &lt;/titleStmt&gt;
+&lt;/fileDesc&gt;
+</ab>
+    <p>On commence à l’élément <seg type="code">&lt;fileDesc/&gt;</seg>,
+    puis on passe à l’élément <hi rendition="simple:italic">fils</hi>
+    <seg type="code">&lt;titleStmt/&gt;</seg> et enfin on arrive au
+    titre <seg type="code">&lt;title/&gt;</seg>.</p>
+    <p>Avec XPath : <seg type="code">/fileDesc/titleStmt/title</seg></p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-départ-et-étapes">
+    <head>Chemins de localisation : départ et étapes</head>
+    <list type="unordered">
+      <item>
+        <p>Le point de départ d’un chemin XPath peut être :</p>
+        <list type="unordered">
+          <item>
+            <p>la racine (<seg type="code">/</seg>),</p>
+          </item>
+          <item>
+            <p>le nœud contextuel (<seg type="code">.</seg>),</p>
+          </item>
+          <item>
+            <p>le nœud parent (<seg type="code">..</seg>),</p>
+          </item>
+          <item>
+            <p>ou <hi rendition="simple:italic">n’importe
+            où</hi> (<seg type="code">//</seg>) ;</p>
+          </item>
+        </list>
+      </item>
+      <item>
+        <p>chaque étape est séparée de la précédente par l’opérateur
+        <seg type="code">/</seg>.</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-exercice-1">
+    <head>Chemins de localisation : exercice</head>
+    <p>Ouvrir le fichier <seg type="code">gdpBrice1684.tei.xml</seg>
+    dans OxygenXML.</p>
+    <list type="unordered">
+      <item>
+        <p>donner le chemin de localisation absolu de la
+        <seg type="code">racine</seg>, du nœud
+        <seg type="code">TEI</seg> et du nœud
+        <seg type="code">body</seg> ;</p>
+      </item>
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">persName</seg>
+        peu importe où ils se trouvent.</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-les-axes">
+    <head>Chemins de localisation : les axes</head>
+    <p>Sans indication particulière, on
+    <hi rendition="simple:italic">descend</hi> dans l’arborescence, mais
+    il est possible de naviguer selon différents
+    <hi rendition="simple:bold">axes</hi> :</p>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">self::</seg> : nœud courant
+        (<seg type="code">.</seg>) ;</p>
+      </item>
+      <item>
+        <p><seg type="code">attribute::</seg> : nœud attribut – c’est un
+        axe particulier (<seg type="code">@nomAttribut</seg>) ;</p>
+      </item>
+      <item>
+        <p><seg type="code">child::</seg> : nœud enfant – seuls les
+        nœuds racine et éléments ont des enfants ;</p>
+      </item>
+      <item>
+        <p><seg type="code">parent::</seg> : le nœud parent
+        (<seg type="code">..</seg>)</p>
+      </item>
+      <item>
+        <p><seg type="code">descendant::</seg> tous les nœuds contenus
+        par le nœud courant (<seg type="code">//</seg>)</p>
+      </item>
+      <item>
+        <p><seg type="code">ancestor::</seg> tous les nœuds qui
+        contiennent le nœud courant</p>
+      </item>
+      <item>
+        <p><seg type="code">ancestor-or-self::</seg> tous les nœuds qui
+        contiennent le nœud courant, y compris ce dernier</p>
+      </item>
+      <item>
+        <p><seg type="code">descendant-or-self::</seg> tous les nœuds
+        contenus par le nœud courant, y compris ce dernier</p>
+      </item>
+      <item>
+        <p><seg type="code">following::</seg> tous les nœuds qui suivent
+        le nœud courant</p>
+      </item>
+      <item>
+        <p><seg type="code">preceding::</seg> tous les nœuds qui
+        précèdent le nœud courant</p>
+      </item>
+      <item>
+        <p><seg type="code">following-sibling::</seg> tous les nœuds qui
+        partagent un parent et suivent le nœud courant</p>
+      </item>
+      <item>
+        <p><seg type="code">preceding-sibling::</seg> tous les nœuds qui
+        partagent un parent et précèdent le nœud courant</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+    <p><figure>
+      <head>Axes XPath</head>
+      <graphic url="https://jrebecchi.github.io/xpath-helper/_images/xpath-axes.jpg" />
+    </figure></p>
+    <p>Axes XPath</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-exercice-2">
+    <head>Chemins de localisation : exercice</head>
+    <list type="unordered">
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">persName</seg>
+        parents d’un nœud <seg type="code">surname</seg></p>
+      </item>
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">forename</seg>
+        qui précèdent un nœud <seg type="code">surname</seg> et
+        partagent en même parent.</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-les-nœuds">
+    <head>Chemins de localisation : les nœuds</head>
+    <p>Il existe <hi rendition="simple:bold">7</hi> types de
+    <hi rendition="simple:bold">nœuds</hi> :</p>
+    <list type="unordered">
+      <item>
+        <p>le nœud <hi rendition="simple:italic">racine</hi>
+        (<formula notation="TeX">\neq</formula> de
+        l’<hi rendition="simple:bold">élément racine</hi>, on parle
+        aussi de nœud <hi rendition="simple:italic">document</hi>), il
+        est unique (<seg type="code">/</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds <hi rendition="simple:italic">éléments</hi>
+        (<seg type="code">nomElement</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds <hi rendition="simple:italic">attributs</hi>
+        (<seg type="code">@nomAttribut</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds <hi rendition="simple:italic">texte</hi>
+        (<seg type="code">text()</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds <hi rendition="simple:italic">commentaires</hi>
+        (<seg type="code">comment()</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds <hi rendition="simple:italic">instructions de
+        traitement</hi>
+        (<seg type="code">processing-instruction()</seg>)</p>
+      </item>
+      <item>
+        <p>les nœuds d’<hi rendition="simple:italic">espace de
+        nom</hi></p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-les-jokers">
+    <head>Chemins de localisation : les jokers</head>
+    <p>Les <hi rendition="simple:italic">Jokers</hi></p>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">*</seg> : tout nœud élément</p>
+      </item>
+      <item>
+        <p><seg type="code">node()</seg> : n’importe quel nœud</p>
+      </item>
+      <item>
+        <p><seg type="code">@*</seg> : tout nœud attribut</p>
+      </item>
+    </list>
+    <p>Les <hi rendition="simple:bold">opérateurs</hi> de séquence</p>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">|</seg> ou <seg type="code">union</seg> :
+        union</p>
+      </item>
+      <item>
+        <p><seg type="code">intersect</seg> : intersection</p>
+      </item>
+      <item>
+        <p><seg type="code">except</seg> : exclusion</p>
+      </item>
+      <item>
+        <p><seg type="code">()</seg> : combinaison</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-exercice-3">
+    <head>Chemins de localisation : exercice</head>
+    <list type="unordered">
+      <item>
+        <p>sélectionner tous les attributs
+        <seg type="code">type</seg>.</p>
+      </item>
+      <item>
+        <p>séléctionner tous les nœuds parents d’un attribut
+        <seg type="code">rend</seg>.</p>
+      </item>
+      <item>
+        <p>sélectionner tous les commentaires.</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-les-prédicats">
+    <head>Chemins de localisation : les prédicats</head>
+    <p>Les <hi rendition="simple:italic">prédicats</hi> sont des
+    conditions de sélection. Ce sont des expressions XPath placées entre
+    crochets « <seg type="code">[]</seg> » à la suite d’un nœud. Ils
+    correspondent aux conditions que doivent remplir un nœud pour être
+    retenu. Chaque étape d’un chemin XPath peut contenir
+    <hi rendition="simple:italic">0</hi> ou
+    <hi rendition="simple:italic">n</hi> prédicats.</p>
+    <ab type='codeblock '>
+//persName[3]
+
+//choice[orig]
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="chemins-de-localisation-exercice-4">
+    <head>Chemins de localisation : exercice</head>
+    <list type="unordered">
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">placeName</seg>
+        qui ont la position 2 dans l’arbre.</p>
+      </item>
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">persName</seg>
+        qui disposent d’un attribut <seg type="code">xml:id</seg>.</p>
+      </item>
+      <item>
+        <p>sélectionner tous les nœuds <seg type="code">persName</seg>
+        qui disposent d’un attribut <seg type="code">xml:id</seg> et qui
+        ont pour parent un nœud <seg type="code">p</seg>.</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath">
+    <head>Autres expressions XPath</head>
+    <p>Les chemins de localisation ne sont pas les seules expressions
+    XPath qui existent. Cependant, ce sont les seules qui peuvent être
+    invoquées dans les attributs <seg type="code">@match</seg> des
+    <seg type="code">&lt;xsl:template/&gt;</seg>.</p>
+    <p>Xpath peut également être utilisé pour retourner des valeurs
+    aussi diverses que des <hi rendition="simple:italic">chaînes de
+    caractères</hi>, des <hi rendition="simple:italic">nombres</hi> ou
+    des <hi rendition="simple:italic">booléens</hi>.</p>
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-les-chaînes-de-caractères">
+    <head>Autres expressions XPath : les chaînes de caractères</head>
+    <p>Les chaînes de caractères
+    (<hi rendition="simple:italic">string</hi>) sont notées entre
+    guillemets simples ou doubles :</p>
+    <ab type='codeblock '>
+'On en a gros !'
+&quot;Faut pas respirer la compote, ça fait tousser.&quot;
+&quot;Moi j'ai appris à lire, et ben je souhaite ça à personne !&quot;
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-les-nombres">
+    <head>Autres expressions XPath : les nombres</head>
+    <p>Une expression XPath peut aussi retourner une nombre entier ou
+    décimal :</p>
+    <ab type='codeblock '>
+3
+3.14159265359
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-les-nombres-1">
+    <head>Autres expressions XPath : les nombres</head>
+    <p>XPath dispose également des 5
+    <hi rendition="simple:italic">opérateurs arithmétiques</hi>
+    traditionnels</p>
+    <list type="unordered">
+      <item>
+        <p>addition « <seg type="code">+</seg> »</p>
+      </item>
+      <item>
+        <p>soustraction « <seg type="code">-</seg> »</p>
+      </item>
+      <item>
+        <p>multiplication « <seg type="code">*</seg> »</p>
+      </item>
+      <item>
+        <p>division « <seg type="code">div</seg> »</p>
+      </item>
+      <item>
+        <p>modulo « <seg type="code">mod</seg> »</p>
+      </item>
+    </list>
+    <ab type='codeblock '>
+4 mod 3 &lt;!-- 1 --&gt;
+2+2  &lt;!-- 4 --&gt;
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-les-booléens">
+    <head>Autres expressions XPath : les booléens</head>
+    <p>Un <hi rendition="simple:bold">booléen</hi> est une valeur qui a
+    exactement deux états : <hi rendition="simple:italic">vrai</hi> ou
+    <hi rendition="simple:italic">faux</hi>. XPath ne propose pas de
+    représentation littérale des booléens. On utilise plutôt :</p>
+    <list type="unordered">
+      <item>
+        <p>les fonctions <seg type="code">true()</seg> et
+        <seg type="code">false()</seg> ;</p>
+      </item>
+      <item>
+        <p>des expressions booléennes avec des opérateurs de
+        comparaison :</p>
+        <list type="unordered">
+          <item>
+            <p>égal « <seg type="code">=</seg> »,</p>
+          </item>
+          <item>
+            <p>différent « <seg type="code">!=</seg> »,</p>
+          </item>
+          <item>
+            <p>inférieur* « <seg type="code">&lt;</seg> » et inférieur
+            ou égal* « <seg type="code">&lt;=</seg> »,</p>
+          </item>
+          <item>
+            <p>supérieur* « <seg type="code">&gt;</seg> » et supérieur
+            ou égal* « <seg type="code">&gt;=</seg> ».</p>
+          </item>
+        </list>
+      </item>
+    </list>
+    <p>Les opérateur <quote>et</quote> « <seg type="code">and</seg> » et
+    <quote>ou</quote> « <seg type="code">or</seg> » permettent de
+    combiner les expressions booléennes.</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-les-booléens-1">
+    <head>Autres expressions XPath : les booléens</head>
+    <ab type='codeblock '>
+//p[position() &gt; 1]
+//chapitre[head != 'Introduction']
+//chapitre/[@type = 'Introduction' or @type = 'conclusion']
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="autres-expressions-xpath-exercice">
+    <head>Autres expressions XPath : exercice</head>
+    <list type="unordered">
+      <item>
+        <p>Sélectionner toutes les
+        <hi rendition="simple:italic">divisions</hi> de type
+        <hi rendition="simple:italic">section</hi>.</p>
+      </item>
+      <item>
+        <p>Sélectionner tous les
+        <hi rendition="simple:italic">nœuds</hi> avec un attribut
+        <hi rendition="simple:italic">rend</hi> égal à
+        <hi rendition="simple:italic">superscript</hi> ou
+        <hi rendition="simple:italic">initial</hi></p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath">
+    <head>Les fonctions XPath</head>
+    <p>XPath dispose également d’un ensemble de fonctions afin
+    d’effectuer des opérations sur les nœuds, les chaînes de caractères,
+    les nombres, les booléens, etc.</p>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-nombres">
+    <head>Les fonctions XPath sur les nombres</head>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">number(object?)</seg>
+        <hi rendition="simple:italic">number</hi> : convertit son
+        argument en nombre</p>
+      </item>
+      <item>
+        <p><seg type="code">sum(node-set nodes)</seg>
+        <hi rendition="simple:italic">number</hi> : somme de tous les
+        nœuds en argument</p>
+      </item>
+      <item>
+        <p><seg type="code">floor(number x)</seg>
+        <hi rendition="simple:italic">number</hi> : retourne le plus
+        grand entier inférieur ou égal à x</p>
+      </item>
+      <item>
+        <p><seg type="code">ceiling(number x)</seg>
+        <hi rendition="simple:italic">number</hi> : retourne le plus
+        petit entier supérieur ou égal à x</p>
+      </item>
+      <item>
+        <p><seg type="code">round(number x)</seg>
+        <hi rendition="simple:italic">number</hi> : retourne l’entier le
+        plus proche de x</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-nombres-1">
+    <head>Les fonctions XPath sur les nombres</head>
+    <ab type='codeblock xml'>
+&lt;node&gt;2&lt;/node&gt;
+
+/node/number() =&gt; 2.0
+&lt;!-- ou --&gt;
+/number(node)
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-booléens">
+    <head>Les fonctions XPath sur les booléens</head>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">boolean(object o)</seg>
+        <hi rendition="simple:italic">boolean</hi> : convertit
+        l’argument en booléen</p>
+      </item>
+      <item>
+        <p><seg type="code">not(boolean)</seg>
+        <hi rendition="simple:italic">boolean</hi> : inverse la valeur
+        de l’argument (vrai devient faux et faux devient vrai)</p>
+      </item>
+      <item>
+        <p><seg type="code">true()</seg>
+        <hi rendition="simple:italic">boolean</hi> : retourne toujours
+        vrai</p>
+      </item>
+      <item>
+        <p><seg type="code">false()</seg>
+        <hi rendition="simple:italic">boolean</hi> : retourne toujours
+        faux</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-booléens-1">
+    <head>Les fonctions XPath sur les booléens</head>
+    <ab type='codeblock xml'>
+&lt;node&gt;string&lt;/node&gt;
+
+boolean(/node) =&gt; true
+boolean(/node/sub)=&gt; false
+not(boolean(/node/sub))=&gt; true
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-nœuds">
+    <head>Les fonctions XPath sur les nœuds</head>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">position()</seg>
+        <hi rendition="simple:italic">number</hi> : position du nœud
+        courant dans l’ensemble contextuel</p>
+      </item>
+      <item>
+        <p><seg type="code">count(nodeset?)</seg>
+        <hi rendition="simple:italic">number</hi> : compte le nombre de
+        nœuds en argument</p>
+      </item>
+      <item>
+        <p><seg type="code">local-name(node-set?)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne le nom
+        local du nœud</p>
+      </item>
+      <item>
+        <p><seg type="code">name(node-set?)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne le nom
+        qualifié du nœud (préfixe + nom local)</p>
+      </item>
+      <item>
+        <p><seg type="code">namespace-uri(node-set?)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne l’espace de
+        nom du nœud</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-nœuds-1">
+    <head>Les fonctions XPath sur les nœuds</head>
+    <ab type='codeblock xml'>
+&lt;root&gt;
+    &lt;node/&gt;
+    &lt;node/&gt;
+&lt;/root&gt;
+//node/position() =&gt; (1, 2)
+
+count(//node) =&gt; 2
+
+&lt;ns:root xmlns:ns=&quot;http://ns&quot;&gt;
+    &lt;ns:node/&gt;
+&lt;/ns:root&gt;
+name(/ns:root) =&gt; ns:root (préfixe + nom)
+local-name(/ns:root) =&gt; root
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-chaînes-de-caractères">
+    <head>Les fonctions XPath sur les chaînes de caractères</head>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">string(string?)</seg>
+        <hi rendition="simple:italic">string</hi> : convertit un objet
+        en chaîne de caractères</p>
+      </item>
+      <item>
+        <p><seg type="code">concat(string, string, string*)</seg>
+        <hi rendition="simple:italic">string</hi> : concatène les
+        arguments</p>
+      </item>
+      <item>
+        <p><seg type="code">normalize-space(string?)</seg>
+        <hi rendition="simple:italic">string</hi> : retire les blancs en
+        début ou fin de chaîne, et remplace les groupes d’espaces ou les
+        retour à la ligne par un espace unique</p>
+      </item>
+      <item>
+        <p><seg type="code">string-length(string?)</seg>
+        <hi rendition="simple:italic">number</hi> : retourne la longueur
+        de la chaîne de caractères en argument</p>
+      </item>
+      <item>
+        <p><seg type="code">starts-with(string s1, string s2)</seg>
+        <hi rendition="simple:italic">boolean</hi> : vérifie si la
+        chaîne s1 commence par la chaîne s2</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-chaînes-de-caractères-1">
+    <head>Les fonctions XPath sur les chaînes de caractères</head>
+    <ab type='codeblock xml'>
+&lt;root&gt;
+    &lt;node&gt;10&lt;/node&gt;
+&lt;/root&gt;
+/root/node/string() =&gt; '10'
+/root/node/string-length() =&gt; 2
+
+concat('Hello', ' World') =&gt; 'Hello World'
+
+&lt;node att=&quot;Hello&quot;&gt;World&lt;/node&gt;
+/node/concat(@att, .) =&gt; 'HelloWorld'
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-chaînes-de-caractères-2">
+    <head>Les fonctions XPath sur les chaînes de caractères</head>
+    <list type="unordered">
+      <item>
+        <p><seg type="code">contains(string s1, string s2)</seg>
+        <hi rendition="simple:italic">boolean</hi> : vérifie que la
+        chaîne s1 contient la chaîne s2</p>
+      </item>
+      <item>
+        <p><seg type="code">substring-before(string s1, string s2)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne la
+        sous-chaîne de s1 placée avant s2</p>
+      </item>
+      <item>
+        <p><seg type="code">substring-after(string s1, string s2)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne la
+        sous-chaîne de s1 placée après s2</p>
+      </item>
+      <item>
+        <p><seg type="code">substring(string s, index, length?)</seg>
+        <hi rendition="simple:italic">string</hi> : retourne la
+        sous-chaîne de s commençant à l’index et de longueur lenght</p>
+      </item>
+      <item>
+        <p><seg type="code">translate(string s1, string s2, string s3)</seg>
+        <hi rendition="simple:italic">string</hi> : remplace dans s1
+        chaque occurrence de s2 par une occurrence de s3</p>
+      </item>
+    </list>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-chaînes-de-caractères-3">
+    <head>Les fonctions XPath sur les chaînes de caractères</head>
+    <ab type='codeblock xml'>
+&lt;root&gt;
+    &lt;node&gt;Hello World&lt;/node&gt;
+&lt;/root&gt;
+
+/root/node/contains(., 'Hello') =&gt; true
+substring-before(/root/node, ' World') =&gt; 'Hello'
+substring(/root/node, 7, 5) =&gt; World
+substring(/root/node, 7) =&gt; World
+</ab>
+    <milestone unit="undefined" type="separator" rendition="line" />
+  </div>
+  <div type="level2" xml:id="les-fonctions-xpath-sur-les-chaînes-de-caractères-exercice">
+    <head>Les fonctions XPath sur les chaînes de caractères :
+    exercice</head>
+    <list type="unordered">
+      <item>
+        <p>pour chaque <seg type="code">persName</seg> fils d’un
+        <seg type="code">respStmt</seg>, effectuer la concaténation des
+        nœuds fils <seg type="code">forename</seg> et
+        <seg type="code">surname</seg>.</p>
+      </item>
+      <item>
+        <p>chercher tous les <seg type="code">placeName</seg> qui
+        contiennent le mot
+        <hi rendition="simple:italic">église</hi>.</p>
+      </item>
+    </list>
+  </div>
+</div>

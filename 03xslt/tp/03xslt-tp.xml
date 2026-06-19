@@ -1,0 +1,107 @@
+<div type="level1" xml:id="tp-03-xslt">
+  <head>TP 03 XSLT</head>
+  <div type="level2" xml:id="objectif">
+    <head>Objectif</head>
+    <p>Modifier la feuille de transformation réalisée lors du TP 02.</p>
+  </div>
+  <div type="level2" xml:id="exercice">
+    <head>Exercice</head>
+    <p>Ouvrir le testament de Henri Jules Barbier
+    (<seg type="code">will_AN_0409.xml</seg>) et le fichier XSLT réalisé
+    lors du TP 02 dans Oxygen, puis créer ou modifier les règles
+    suivantes :</p>
+    <div type="level3" xml:id="head-dateline-p-signed">
+      <head>1. head, dateline, p, signed</head>
+      <p>Réécrirez les règles pour les éléments
+      <seg type="code">&lt;head/&gt;</seg>,
+      <seg type="code">&lt;dateline/&gt;</seg>,
+      <seg type="code">&lt;p/&gt;</seg> et
+      <seg type="code">&lt;signed/&gt;</seg> afin de les regrouper en
+      une règle unique, et implémentez un test afin d’ajouter une classe
+      (<seg type="code">@class</seg>) si un attribut
+      <seg type="code">@rend</seg> est présent.</p>
+    </div>
+    <div type="level3" xml:id="div">
+      <head>2. div</head>
+      <p>Ajoutez une règles pour transformer les éléments TEI
+      <seg type="code">&lt;div/&gt;</seg> en élément HTML
+      <seg type="code">&lt;section/&gt;</seg>. L’attribut
+      <seg type="code">@type</seg> doit devenir une classe. N’oubliez
+      pas d’appliquer les templates.</p>
+    </div>
+    <div type="level3" xml:id="choice">
+      <head>3. choice</head>
+      <p>Ajoutez une règle afin que seuls les éléments
+      <seg type="code">&lt;corr/&gt;</seg> et
+      <seg type="code">&lt;expan/&gt;</seg> soient instanciés dans les
+      éléments <seg type="code">&lt;choice/&gt;</seg></p>
+    </div>
+    <div type="level3" xml:id="del-et-add">
+      <head>4. del et add</head>
+      <p>Créez une règle pour supprimer les nœuds
+      <seg type="code">&lt;del/&gt;</seg> et
+      <seg type="code">&lt;add type='testatorComment'/&gt;</seg> en
+      sortie</p>
+    </div>
+    <div type="level3" xml:id="supplied">
+      <head>5. supplied</head>
+      <p>Créez une règle afin d’instancier les éléments
+      <seg type="code">&lt;supplied/&gt;</seg> entre crochets droits
+      <seg type="code">[]</seg></p>
+    </div>
+    <div type="level3" xml:id="hi">
+      <head>6. hi</head>
+      <p>À l’aide d’une requête XPath, recherchez les valeurs uniques
+      des attributs <seg type="code">@rend</seg>.</p>
+      <p>Créez une règle pour chaque valeur de
+      <seg type="code">hi/@rend</seg> en utilisant un
+      <seg type="code">test</seg>.</p>
+    </div>
+    <div type="level3" xml:id="pb">
+      <head>7. pb</head>
+      <p>Ajoutez une règle pour les éléments
+      <seg type="code">&lt;pb/&gt;</seg> et créez une variable pour
+      numéroter les changements de page.</p>
+      <p>En sortie, placez le numéro de page entre crochets
+      <seg type="code">[]</seg>.</p>
+    </div>
+    <div type="level3" xml:id="notes">
+      <head>8. Notes</head>
+      <div type="level4" xml:id="appels">
+        <head>8.1. Appels</head>
+        <p>Ajoutez une règle pour les éléments
+        <seg type="code">&lt;note/&gt;</seg>. :</p>
+        <list type="unordered">
+          <item>
+            <p>créez une variable pour numéroter l’élément
+            <seg type="code">note</seg></p>
+          </item>
+          <item>
+            <p>en sortie, placer le numéro de la note en exposant
+            (balise HTML <seg type="code">&lt;sup/&gt;</seg>)</p>
+          </item>
+        </list>
+      </div>
+      <div type="level4" xml:id="pieds-de-page">
+        <head>8.2 pieds de page</head>
+        <p>Ajouter une règle modale pour les éléments
+        <seg type="code">&lt;note/&gt;</seg> (p. ex.
+        <seg type="code">mode=&quot;footnote&quot;</seg>)</p>
+        <list type="unordered">
+          <item>
+            <p>numérotez les notes comme ci-dessus</p>
+          </item>
+          <item>
+            <p>instanciez l’appel de note et le contenu de la note dans
+            un élément <seg type="code">&lt;p/&gt;</seg></p>
+          </item>
+          <item>
+            <p>modifiez le modèle de l’élément
+            <seg type="code">&lt;div/&gt;</seg> afin d’appliquez la
+            règle modale</p>
+          </item>
+        </list>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div type="slide">
+    <item>Ajoutez une règle pour les éléments <code>hi</code> disposant d’un attribut <code>@rend</code> de valeur <code>"superscript"</code> afin d’avoir un rendu HTML en exposant.</item>
+    <item>Créez un template <emph>nommé</emph> <code>html</code> contenant une structure HTML classique (<code>html&gt;head+body</code>)
+        
+        <list>
+            <item>dans l’élément <code>&lt;head/&gt;</code>, placez un élément <code>&lt;meta charset="utf-8"/&gt;</code> pour l’encodage des caractères</item>
+            <item>l’élément HTML <code>title</code> doit prendre la valeur du titre principal dans le document TEI (voir règle déjà existante pour le <code>teiHeader</code>). <emph>NB. Pensez à utiliser un chemin absolu</emph></item>
+            <item>dans le corps de la page HTML ajoutez une navigation composée d’une liste de 3 liens : <list>
+                <item>Accueil : <code>index.html</code></item>
+                <item>Testament : <code>testament.html</code></item>
+                <item>Codicille : <code>codicille.html</code></item></list>
+            </item>
+            <item>supprimez les règles déjà existantes pour les éléments <code>TEI</code>, <code>teiHeader</code> et <code>body</code></item>
+        </list>
+    </item>
+    <item>ajoutez un paramètre <code>content</code> au template <code>html</code> ; <lb/>appliquez ce paramètre dans le <code>&lt;body/&gt;</code></item>
+    <item>Modifiez règle du nœud document : <list>
+            <item>supprimez le modèle existant ;</item>
+            <item>ajoutez une première instruction <code>result-document</code> afin de créer un fichier <code>index.html</code> <list>
+                    <item>appelez le template <code>html</code> en lui passant comme paramètre <code>content</code> l’élément <code>abstract</code></item></list>
+            </item>
+            <item>effectuez une transformation (pensez à indiquer à Oxygen un dossier de sortie)</item>
+        </list>
+    </item>
+    <item><p>Répétez l’opération pour le testament (<code>testament.html</code> ; <code>content</code>  : <code>&lt;div type="will"/&gt;</code>) et le codicille (<code>condicille.html</code> ; <code>content</code> : <code>&lt;div type="codicil"</code>)</p></item>
+    <list>
+        <item>En utilisant des tests et boucles simplifiez et automatisez le traitements des éléments TEI <code>div</code>, afin de ne pas avoir à répéter manuellement les instructions <code>result-document</code>.</item>
+        <item>Faites de même avec la navigation.</item>
+    </list>
+</div>
