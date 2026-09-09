@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  PUBLIC "'-//W3C//DTD XHTML 1.0 Strict//EN'" "'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:file="http://expath.org/ns/file" xmlns:x="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>LHQ1C2M1 - Transformations éditoriales avancéesXPath</title>
+      <link rel="stylesheet" href="../assets/css/main.css" type="text/css" />
+      <link rel="stylesheet" href="//unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-latte.css" /><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js">/**/</script></head>
+   <body>
+      <main class="slide ">
+         
+         <h1>Les nœuds</h1>
+         
+         <p>Bien évidemment, on peut chercher autre chose que des nœuds éléments, par exemple
+            des attributs, ou du texte.</p>
+         
+         <p>Il existe <strong>7</strong> types de <strong>nœuds</strong> :</p>
+         
+         <ul>
+            
+            <li>le nœud <em>racine</em> (<code>≠</code> de l’<strong>élément racine</strong>, on parle aussi de nœud <em>document</em>), il est unique (<code>/</code>) </li>
+            
+            <li>les nœuds <em>éléments</em></li>
+            
+            <li>les nœuds <em>attributs</em> (axe <code>attribute::</code>)</li>
+            
+            <li>les nœuds <em>texte</em> (<code>text()</code>) </li>
+            
+            <li>les nœuds <em>commentaires</em> (<code>comment()</code>) </li>
+            
+            <li>les nœuds <em>instructions de traitement</em> (<code>processing-instruction()</code>) </li>
+            
+            <li>les nœuds d’<em>espace de nom</em></li>
+            </ul>
+         
+         <p>Les <em>Jokers</em></p>
+         
+         <ul>
+            
+            <li><code>*</code> : tout nœud élément </li>
+            
+            <li><code>node()</code> : n’importe quel nœud (sauf les attributs)</li>
+            
+            <li><code>@*</code> : tout nœud attribut</li>
+            </ul>
+         
+         <p>Les <strong>opérateurs</strong> de séquence</p>
+         
+         <ul>
+            
+            <li><code>|</code> ou <code>union</code> : union</li>
+            
+            <li><code>intersect</code> : intersection</li>
+            
+            <li><code>except</code> : exclusion</li>
+            
+            <li><code>()</code> : combinaison</li>
+            </ul>
+         </main><script>hljs.highlightAll();</script></body>
+</html>

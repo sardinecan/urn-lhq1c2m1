@@ -1,0 +1,37 @@
+<!DOCTYPE html
+  PUBLIC "'-//W3C//DTD XHTML 1.0 Strict//EN'" "'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:file="http://expath.org/ns/file" xmlns:x="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>LHQ1C2M1 - Transformations éditoriales avancéesXPath</title>
+      <link rel="stylesheet" href="../assets/css/main.css" type="text/css" />
+      <link rel="stylesheet" href="//unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-latte.css" /><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js">/**/</script></head>
+   <body>
+      <main class="slide ">
+         
+         <h1>Shorthand</h1>
+         
+         <p>XPath possède une syntaxe abréviée (<em>shorthand</em>) pour certaines expressions :</p>
+         
+         <ul>
+            
+            <li>l’axe <code>child::</code> est facultatif ;</li>
+            
+            <li>l’axe <code>attribute::</code> peut être remplacé par le symbole <code>@</code> ;</li>
+            
+            <li>l’axe <code>parent::</code> peut être noté <code>..</code> ;</li>
+            
+            <li>l’axe <code>descendant-or-self::</code> est abrévié en <code>//</code> (autrement dit, n’importe où dans le document).</li>
+            
+            <li>Le nœud courant est abrévié <code>.</code></li>
+            </ul>
+         
+         <pre><code class="language-">
+                        
+/child::body/child::div = /body/div
+/child::body/child::div/attribute::type = /body/div/@type
+/child::body/descendant::p = /body//p
+                        
+                    </code></pre>
+         </main><script>hljs.highlightAll();</script></body>
+</html>

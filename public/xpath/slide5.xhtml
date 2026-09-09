@@ -1,0 +1,57 @@
+<!DOCTYPE html
+  PUBLIC "'-//W3C//DTD XHTML 1.0 Strict//EN'" "'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:file="http://expath.org/ns/file" xmlns:x="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>LHQ1C2M1 - Transformations éditoriales avancéesXPath</title>
+      <link rel="stylesheet" href="../assets/css/main.css" type="text/css" />
+      <link rel="stylesheet" href="//unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-latte.css" /><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js">/**/</script></head>
+   <body>
+      <main class="slide ">
+         
+         <h1>Arborescence</h1>
+         
+         <p>Représenter cet arbre XML :</p>
+         
+         <pre><code class="language-xml">
+&lt;?xml version="1.0"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="tei2html.xsl"?&gt;
+&lt;div type="letter"&gt;
+    &lt;opener&gt;
+        &lt;dateline rend="right"&gt;11 h. du soir&lt;/dateline&gt;
+    &lt;/opener&gt;
+    &lt;p&gt;Je t’aime – &lt;lb/&gt; J’ai un si violent mal de tête qu’il me serait impossible de continuer ces lignes. Mais tout est là – dans un mot. Je t’aime.&lt;/p&gt;
+    &lt;closer&gt;
+        &lt;signed rend="right"&gt;Juliette&lt;/signed&gt;
+    &lt;/closer&gt;
+&lt;/div&gt;
+                    </code></pre>
+         
+         <details>
+            
+            <summary>Voir l’arbre</summary>
+            
+            <pre><code class="language-">
+/
+├── &lt;?xml-stylesheet type="text/xsl" href="tei2html.xsl"?&gt;
+└── div
+    ├── @type
+    │   └── "letter"
+    ├── opener
+    │   └── dateline
+    │       ├── @rend
+    │       │   └── "right"
+    │       └── "11 h. du soir"
+    ├── p
+    │   ├── "Je t'aime – "
+    │   ├── lb
+    │   └── " J'ai un si violent mal de tête qu'il me serait impossible de continuer ces lignes. Mais tout est là – dans un mot. Je t'aime."
+    └── closer
+        └── signed
+            ├── @rend
+            │   └── "right"
+            └── "Juliette"
+                        </code></pre>
+            </details>
+         </main><script>hljs.highlightAll();</script></body>
+</html>
