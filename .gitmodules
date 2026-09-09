@@ -1,0 +1,6 @@
+[submodule "xpath"]
+	path = src/xpath
+	url = git@github.com:sardinecan/xpath.git
+[submodule "src/xslt"]
+	path = src/xslt
+	url = git@github.com:sardinecan/xslt.git
