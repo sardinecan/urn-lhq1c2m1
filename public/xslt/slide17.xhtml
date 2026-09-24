@@ -9,15 +9,9 @@
    <body>
       <main class="slide ">
          
-         <h1>xsl:apply-templates</h1>
+         <h1><em>literal data characters</em></h1>
          
-         <p>La balise <code>&lt;xsl:apply-templates/&gt;</code> signifie « applique les autres règles modèles au contenu de l’élément courant ».</p>
-         
-         <p>S’il n’y a pas de règle modèle dont le <strong>motif</strong> correspond au(x) nœud(s), une règle modèle intégrée est utilisée : elle retourne
-            la valeur textuelle du nœud.</p>
-         
-         <p>Par défaut, l’instruction <code>&lt;xsl:apply-templates/&gt;</code> examine, dans l’ordre, les enfants du nœud contextuel. Cependant, il est possible
-            de modifier ce comportement avec l’attribut <code>@select</code>. Il permet d’indiquer au processeur quel(s) autre(s) nœud(s) doi(ven)t être traité(s).</p>
+         <p>Aucune obligation cependant d’appliquer des <em>templates</em> :</p>
          
          <pre><code class="language-xml">
 &lt;!-\- fragment à transformer
@@ -25,13 +19,18 @@
 -\-&gt;
 
 &lt;xsl:template match="ref"&gt;
-    &lt;xsl:apply-templates select="emph"/&gt;
-&lt;/xsl:template&gt;
-&lt;xsl:template match="emph"&gt;
-    &lt;em&gt;&lt;xsl:apply-templates/&gt;&lt;/em&gt;
+    XML
 &lt;/xsl:template&gt;
 </code></pre>
          
-         <p>résultat : <code>&lt;em&gt;XSLT&lt;/em&gt;</code></p>
+         <p>Le contenu de l’élément <code>&lt;ref/&gt;</code> est remplacé par <code>"XML"</code> :</p>
+         
+         <ul>
+            
+            <li>le texte et l’élément <code>&lt;emph/&gt;</code> sont ignorés</li>
+            </ul>
+         
+         <p>Implicitement, on a demandé au processeur XSLT de ne pas descendre plus loin dans
+            l’arborescence du nœud <code>&lt;ref/&gt;</code> en donnant l’instruction d’imprimer <code>"XML"</code>.</p>
          </main><script>hljs.highlightAll();</script></body>
 </html>

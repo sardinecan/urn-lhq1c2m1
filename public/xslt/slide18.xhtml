@@ -9,28 +9,28 @@
    <body>
       <main class="slide ">
          
-         <h1><em>literal data characters</em></h1>
+         <h1>xsl:element</h1>
          
-         <p>Aucune obligation cependant d’appliquer des <em>templates</em> :</p>
+         <p>Bien évidemment, on peut aussi ajouter des nœuds en sortie (<em>literal result elements</em>)</p>
          
          <pre><code class="language-xml">
-&lt;!-\- fragment à transformer
-&lt;ref target="www.w3.org/TR/xslt-30/"&gt;The &lt;emph&gt;XSLT&lt;/emph&gt; Standard&lt;/ref&gt;
--\-&gt;
-
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://www.tei-c.org/ns/1.0" version="2.0"&gt;
+    &lt;xsl:template match="ref"&gt;
+        &lt;a&gt;XML&lt;/a&gt;
+    &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code></pre>
+         
+         <p>Le résultat en sortie sera alors : <code>&lt;a&gt;XML&lt;/a&gt;</code></p>
+         
+         <p>Mais on peut également déclarer un élément directement :</p>
+         
+         <pre><code class="language-xml">
 &lt;xsl:template match="ref"&gt;
-    XML
+    &lt;a&gt;&lt;xsl:apply-templates/&gt;&lt;/a&gt;
+&lt;/xsl:template&gt;
+&lt;xsl:template match="ref"&gt;
+    &lt;xsl:element name="a"&gt;&lt;xsl:apply-templates/&gt;&lt;/xsl:element&gt;
 &lt;/xsl:template&gt;
 </code></pre>
-         
-         <p>Le contenu de l’élément <code>&lt;ref/&gt;</code> est remplacé par <code>"XML"</code> :</p>
-         
-         <ul>
-            
-            <li>le texte et l’élément <code>&lt;emph/&gt;</code> sont ignorés</li>
-            </ul>
-         
-         <p>Implicitement, on a demandé au processeur XSLT de ne pas descendre plus loin dans
-            l’arborescence du nœud <code>&lt;ref/&gt;</code> en donnant l’instruction d’imprimer <code>"XML"</code>.</p>
          </main><script>hljs.highlightAll();</script></body>
 </html>

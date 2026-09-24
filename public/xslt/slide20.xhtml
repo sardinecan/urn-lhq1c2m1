@@ -9,36 +9,17 @@
    <body>
       <main class="slide ">
          
-         <h1>xsl:attribute</h1>
+         <h1>xsl:value-of</h1>
          
-         <p>Tout comme les éléments, plusieurs méthodes existent pour déclarer des attributs :</p>
-         
-         <pre><code class="language-xml">
-&lt;xsl:template match="ref"&gt;
-    &lt;a href="http://unlien.org"&gt;Un lien&lt;/a&gt;
-&lt;/xsl:template&gt;
-
-&lt;xsl:template match="ref"&gt;
-    &lt;xsl:element name="a"&gt;
-        &lt;xsl:attribute name="href"&gt;http://unlien.org&lt;/xsl:attribute&gt;
-        &lt;xsl:apply-templates/&gt;
-    &lt;/xsl:element&gt;
-&lt;/xsl:template&gt;</code></pre>
-         
-         <p>On peut également définir la valeur de l’attribut avec une expression XPath :</p>
+         <p>Lorsque l’on souhaite uniquement accéder à la valeur textuelle d’un nœud, on utilise
+            l’élément <code>&lt;xsl:value-of /&gt;</code>. La valeur textuelle d’un nœud correspond au contenu d’un élément une fois que toutes
+            les balises ont été retirées.</p>
          
          <pre><code class="language-xml">
 &lt;xsl:template match="ref"&gt;
-    &lt;a href="{ ./@target }"&gt;
-        &lt;xsl:apply-templates/&gt;
-    &lt;/a&gt;
-&lt;/xsl:template&gt;
-
-&lt;xsl:template match="ref"&gt;
-    &lt;xsl:element name="a"&gt;
-        &lt;xsl:attribute name="href" select="@target"/&gt;
-        &lt;xsl:apply-templates/&gt;
-    &lt;/xsl:element&gt;
+    &lt;xsl:value-of select="."/&gt;
 &lt;/xsl:template&gt;</code></pre>
+         
+         <p>résultat : <code>The XSLT Standard</code></p>
          </main><script>hljs.highlightAll();</script></body>
 </html>

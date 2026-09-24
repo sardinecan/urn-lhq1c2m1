@@ -9,28 +9,36 @@
    <body>
       <main class="slide ">
          
-         <h1>xsl:element</h1>
+         <h1>xsl:attribute</h1>
          
-         <p>Bien évidemment, on peut aussi ajouter des nœuds en sortie (<em>literal result elements</em>)</p>
-         
-         <pre><code class="language-xml">
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://www.tei-c.org/ns/1.0" version="2.0"&gt;
-    &lt;xsl:template match="ref"&gt;
-        &lt;a&gt;XML&lt;/a&gt;
-    &lt;/xsl:template&gt;
-&lt;/xsl:stylesheet&gt;</code></pre>
-         
-         <p>Le résultat en sortie sera alors : <code>&lt;a&gt;XML&lt;/a&gt;</code></p>
-         
-         <p>Mais on peut également déclarer un élément directement :</p>
+         <p>Tout comme les éléments, plusieurs méthodes existent pour déclarer des attributs :</p>
          
          <pre><code class="language-xml">
 &lt;xsl:template match="ref"&gt;
-    &lt;a&gt;&lt;xsl:apply-templates/&gt;&lt;/a&gt;
+    &lt;a href="http://unlien.org"&gt;Un lien&lt;/a&gt;
 &lt;/xsl:template&gt;
+
 &lt;xsl:template match="ref"&gt;
-    &lt;xsl:element name="a"&gt;&lt;xsl:apply-templates/&gt;&lt;/xsl:element&gt;
+    &lt;xsl:element name="a"&gt;
+        &lt;xsl:attribute name="href"&gt;http://unlien.org&lt;/xsl:attribute&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;</code></pre>
+         
+         <p>On peut également définir la valeur de l’attribut avec une expression XPath :</p>
+         
+         <pre><code class="language-xml">
+&lt;xsl:template match="ref"&gt;
+    &lt;a href="{ ./@target }"&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/a&gt;
 &lt;/xsl:template&gt;
-</code></pre>
+
+&lt;xsl:template match="ref"&gt;
+    &lt;xsl:element name="a"&gt;
+        &lt;xsl:attribute name="href" select="@target"/&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;</code></pre>
          </main><script>hljs.highlightAll();</script></body>
 </html>
