@@ -9,23 +9,28 @@
    <body>
       <main class="slide ">
          
-         <h1>Contenu de la formation</h1>
+         <h1><em>literal data characters</em></h1>
+         
+         <p>Aucune obligation cependant d’appliquer des <em>templates</em> :</p>
+         
+         <pre><code class="language-xml">
+&lt;!-\- fragment à transformer
+&lt;ref target="www.w3.org/TR/xslt-30/"&gt;The &lt;emph&gt;XSLT&lt;/emph&gt; Standard&lt;/ref&gt;
+-\-&gt;
+
+&lt;xsl:template match="ref"&gt;
+    XML
+&lt;/xsl:template&gt;
+</code></pre>
+         
+         <p>Le contenu de l’élément <code>&lt;ref/&gt;</code> est remplacé par <code>"XML"</code> :</p>
          
          <ul>
             
-            <li>
-               Initiation à XSLT
-               
-               <ul>
-                  
-                  <li>Programmation XSLT</li>
-                  
-                  <li>Les <em>stylesheets</em> de la TEI</li>
-                  </ul>
-               </li>
+            <li>le texte et l’élément <code>&lt;emph/&gt;</code> sont ignorés</li>
             </ul>
          
-         <p><strong>Objectifs</strong> : acquérir les fondements du langage de programmation XSLT pour transformer des documents
-            XML-TEI vers HTML pour la publication web.</p>
+         <p>Implicitement, on a demandé au processeur XSLT de ne pas descendre plus loin dans
+            l’arborescence du nœud <code>&lt;ref/&gt;</code> en donnant l’instruction d’imprimer <code>"XML"</code>.</p>
          </main><script>hljs.highlightAll();</script></body>
 </html>
